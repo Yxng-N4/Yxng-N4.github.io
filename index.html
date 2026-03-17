@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automate Your Agency | Afa Nfor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --muted: #6b6560;
+    --border: #e0d9ce;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--warm-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .logo span { color: var(--gold); }
+
+  header nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-left: 2.5rem;
+    transition: color 0.2s;
+  }
+
+  header nav a:hover { color: var(--gold); }
+
+  .header-cta {
+    background: var(--ink);
+    color: var(--warm-white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+  }
+
+  .header-cta:hover { background: var(--gold); color: var(--ink) !important; }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 88vh;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-left {
+    padding: 6rem 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-left h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-left p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 460px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--warm-white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold); color: var(--ink); }
+
+  .btn-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-right {
+    background: var(--cream);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-light);
+    opacity: 0.5;
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+
+  .pain-list {
+    list-style: none;
+    margin-bottom: 3rem;
+  }
+
+  .pain-list li {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  .pain-list li .icon {
+    font-size: 1.1rem;
+    min-width: 1.5rem;
+  }
+
+  .pain-list li strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-box {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 1.4rem;
+    border-radius: 2px;
+  }
+
+  .stat-box .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-box .label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION STYLES */
+  section {
+    padding: 6rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 540px;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+  }
+
+  /* PROBLEMS */
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .problem-card {
+    padding: 2.5rem;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .problem-card:last-child { border-right: none; }
+  .problem-card:hover { background: var(--cream); }
+
+  .problem-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .problem-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .problem-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    border: 1px solid var(--border);
+    padding: 3rem;
+    background: var(--warm-white);
+    position: relative;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  }
+
+  .service-card.featured {
+    background: var(--ink);
+    color: var(--warm-white);
+    border-color: var(--ink);
+  }
+
+  .service-card.featured .service-sub,
+  .service-card.featured .service-price-note { color: rgba(255,255,255,0.5); }
+
+  .service-card.featured .deliverable { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+
+  .service-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-card.featured .service-tag { color: var(--gold-light); }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .service-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .deliverables {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .deliverable {
+    font-size: 0.85rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .deliverable::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.3rem;
+  }
+
+  .service-price-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* CASE STUDY */
+  .case-study {
+    background: var(--cream);
+  }
+
+  .case-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .case-step {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+
+  .case-step:last-child { border-right: none; }
+
+  .case-step .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .case-step h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .case-step p {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .case-result {
+    background: var(--ink);
+    color: var(--warm-white);
+    padding: 3rem 4rem;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .case-result-stat { text-align: center; }
+
+  .case-result-stat .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-result-stat .small {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* OFFER */
+  .offer-box {
+    border: 1px solid var(--gold);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background: var(--cream);
+  }
+
+  .offer-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .offer-box p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .offer-points {
+    list-style: none;
+  }
+
+  .offer-points li {
+    font-size: 0.88rem;
+    padding: 0.5rem 0;
+    display: flex;
+    gap: 0.8rem;
+    color: var(--muted);
+  }
+
+  .offer-points li::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+  .offer-right { text-align: center; }
+
+  .offer-price-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-price-cross {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 0.3rem;
+  }
+
+  .offer-price-real {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-price-sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .spots-left {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--warm-white);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  footer .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-left .eyebrow { animation-delay: 0.1s; }
+  .hero-left h1 { animation-delay: 0.25s; }
+  .hero-left p { animation-delay: 0.4s; }
+  .hero-left .cta-group { animation-delay: 0.55s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    header { padding: 1.5rem 2rem; }
+    header nav { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 2rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 3rem 2rem; }
+    section { padding: 4rem 2rem; }
+    .problems-grid { grid-template-columns: 1fr; }
+    .problem-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .services-grid { grid-template-columns: 1fr; }
+    .case-flow { grid-template-columns: 1fr 1fr; }
+    .offer-box { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
+    footer { padding: 3rem 2rem; }
+    .case-result { padding: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Afa <span>Nfor</span></div>
+  <nav>
+    <a href="#problems">The Problem</a>
+    <a href="#services">Services</a>
+    <a href="#case-study">Case Study</a>
+    <a href="mailto:afanyu.nfor4@gmail.com" class="header-cta">Book Free Call</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">For Independent Letting Agents</p>
+    <h1>Stop doing <em>manually</em> what takes 30 seconds to automate.</h1>
+    <p>I build done-for-you automation systems that handle your lead follow-ups, viewing confirmations, and landlord comms — so you close more lets without hiring more staff.</p>
+    <div class="cta-group">
+      <a href="mailto:afanyu.nfor4@gmail.com?subject=Free Automation Demo" class="btn-primary">Book a Free 10-Min Demo</a>
+      <a href="#case-study" class="btn-secondary">See a real example</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <ul class="pain-list">
+      <li>
+        <span class="icon">⏱</span>
+        <div>
+          <strong>Hours lost to manual follow-up</strong>
+          Chasing leads, confirming viewings, updating landlords — all by hand, every day.
+        </div>
+      </li>
+      <li>
+        <span class="icon">📉</span>
+        <div>
+          <strong>Leads going cold while you're busy</strong>
+          A new enquiry not followed up within an hour is probably going to your competitor.
+        </div>
+      </li>
+      <li>
+        <span class="icon">🔁</span>
+        <div>
+          <strong>The same tasks, every single week</strong>
+          Copy-paste emails, manual spreadsheet updates, chasing documents — all automatable.
+        </div>
+      </li>
+    </ul>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="number">5hrs</div>
+        <div class="label">Average time saved per week</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">48hr</div>
+        <div class="label">Typical setup turnaround</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEMS -->
+<section id="problems">
+  <p class="section-label">The Problem</p>
+  <h2 class="section-title">Your agency runs on three costly manual habits.</h2>
+  <p class="section-sub">These are the tasks that eat your time every week — and every single one of them can be automated within 48 hours.</p>
+
+  <div class="problems-grid">
+    <div class="problem-card">
+      <div class="num">01</div>
+      <h3>Slow Lead Response</h3>
+      <p>Every new Rightmove or Zoopla enquiry needs an instant, personalised reply. You can't always be at your desk. I build an automatic first-response that fires within seconds of a new lead — qualified, warm, and branded to your agency.</p>
+    </div>
+    <div class="problem-card">
+      <div class="num">02</div>
+      <h3>Viewing Confirmation Admin</h3>
+      <p>Sending confirmations, reminders, and follow-ups for every viewing is repetitive, error-prone, and easily forgotten during a busy week. One automation handles all of it: confirmation on booking, reminder 24 hours before, follow-up the day after.</p>
+    </div>
+    <div class="problem-card">
+      <div class="num">03</div>
+      <h3>Manual Landlord Updates</h3>
+      <p>Landlords expect regular updates but chasing them — or being chased by them — drains your team's time. Automated monthly reports and maintenance status updates keep landlords happy without a single manual email.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">Two ways I work with letting agents.</h2>
+  <p class="section-sub">Both options include a free 10-minute discovery call so I can understand exactly what your agency needs before building anything.</p>
+
+  <div class="services-grid">
+    <div class="service-card featured">
+      <span class="service-tag">Most Popular</span>
+      <h3>Done-For-You Automation Workflow</h3>
+      <p class="service-sub">I map, build, and deliver a fully working automation system tailored to your letting agency — using Zapier or Make. No technical knowledge required on your end.</p>
+      <ul class="deliverables">
+        <li class="deliverable">1–2 custom workflows built to your agency's process</li>
+        <li class="deliverable">Integration with your existing tools (email, CRM, spreadsheets)</li>
+        <li class="deliverable">Loom video walkthrough so your team understands it</li>
+        <li class="deliverable">7-day post-delivery support included</li>
+      </ul>
+      <div class="service-price">From £250</div>
+      <p class="service-price-note">+ optional £100/month maintenance retainer</p>
+      <a href="mailto:afanyu.nfor4@gmail.com?subject=Automation Workflow Enquiry" class="btn-primary">Get Started</a>
+    </div>
+
+    <div class="service-card">
+      <span class="service-tag">Add-On</span>
+      <h3>Custom AI Response System</h3>
+      <p class="service-sub">A GPT-powered tool trained on your agency's tone, listings, and FAQs — used to draft tenant enquiry responses, landlord updates, or internal comms in seconds.</p>
+      <ul class="deliverables">
+        <li class="deliverable">Custom prompt system built for your specific use case</li>
+        <li class="deliverable">Trained on your brand tone and common scenarios</li>
+        <li class="deliverable">Delivered as a simple tool your team can use immediately</li>
+        <li class="deliverable">Setup instructions and example outputs included</li>
+      </ul>
+      <div class="service-price">From £150</div>
+      <p class="service-price-note">One-time setup fee</p>
+      <a href="mailto:afanyu.nfor4@gmail.com?subject=AI Response System Enquiry" class="btn-primary" style="background: var(--ink);">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case-study" class="case-study">
+  <p class="section-label">Example Project</p>
+  <h2 class="section-title">How a single automation saves a letting agent 5+ hours a week.</h2>
+  <p class="section-sub">Here's a real-world example of the type of system I build — from the problem through to the result.</p>
+
+  <div class="case-flow">
+    <div class="case-step">
+      <div class="step-num">The Problem</div>
+      <h4>New Rightmove enquiries going unanswered for hours</h4>
+      <p>A busy independent agent was missing the response window on new leads — especially evenings and weekends. Competitors were faster.</p>
+    </div>
+    <div class="case-step">
+      <div class="step-num">The Trigger</div>
+      <h4>New enquiry received via email or web form</h4>
+      <p>The automation watches for incoming enquiry emails, extracts the lead's name, property interest, and contact details automatically.</p>
+    </div>
+    <div class="case-step">
+      <div class="step-num">The Action</div>
+      <h4>Instant personalised reply + CRM log</h4>
+      <p>A warm, branded response is sent to the lead within 60 seconds. Details are simultaneously logged in a Google Sheet and flagged for morning follow-up.</p>
+    </div>
+    <div class="case-step">
+      <div class="step-num">The Follow-Up</div>
+      <h4>Automated viewing invitation sent 2 hours later</h4>
+      <p>If the lead hasn't responded, a second message offers three available viewing slots — pulling directly from a shared calendar.</p>
+    </div>
+  </div>
+
+  <div class="case-result">
+    <div class="case-result-stat">
+      <span class="big">60s</span>
+      <span class="small">Response time (was 3+ hours)</span>
+    </div>
+    <div class="case-result-stat">
+      <span class="big">5hrs</span>
+      <span class="small">Saved per week</span>
+    </div>
+    <div class="case-result-stat">
+      <span class="big">48hr</span>
+      <span class="small">Build & delivery time</span>
+    </div>
+    <div class="case-result-stat">
+      <span class="big">£0</span>
+      <span class="small">Extra staff cost</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section>
+  <p class="section-label">Limited Offer</p>
+  <h2 class="section-title">First 3 agencies get a case study rate.</h2>
+  <p class="section-sub">I'm looking for three letting agents to work with at a reduced rate in exchange for an honest testimonial about the results.</p>
+
+  <div class="offer-box">
+    <div>
+      <h3>Full setup. Real results. Honest feedback.</h3>
+      <p>You get a fully built, working automation system for your agency. I get a documented case study and testimonial. No obligation beyond that.</p>
+      <ul class="offer-points">
+        <li>Full discovery call to map your biggest time drains</li>
+        <li>Custom automation built specifically for your workflow</li>
+        <li>7-day support window after delivery</li>
+        <li>You only pay if you're happy with the demo first</li>
+        <li>No long-term contract required</li>
+      </ul>
+    </div>
+    <div class="offer-right">
+      <div class="spots-left">2 Spots Remaining</div>
+      <p class="offer-price-big">Case Study Rate</p>
+      <p class="offer-price-cross">£250</p>
+      <p class="offer-price-real">£125</p>
+      <p class="offer-price-sub">One-time setup · 7-day support included</p>
+      <a href="mailto:afanyu.nfor4@gmail.com?subject=Case Study Rate — Letting Agent Automation" class="btn-primary" style="width: 100%; text-align: center; display: block;">Claim This Rate</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="logo" style="margin-bottom: 0.5rem;">Afa <span style="color: var(--gold);">Nfor</span></div>
+    <p>Automation & AI systems for independent letting agents.</p>
+  </div>
+  <div>
+    <p style="margin-bottom: 0.5rem;">Ready to save 5 hours a week?</p>
+    <a href="mailto:afanyu.nfor4@gmail.com?subject=Free Automation Demo">afanyu.nfor4@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
